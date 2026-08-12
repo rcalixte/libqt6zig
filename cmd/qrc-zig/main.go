@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	DefaultVariableName string = "_resourceRcc"
+	DefaultVariableName string = "_resource_rcc"
 	DefaultGenBinary    bool   = false
 	DefaultUpper        bool   = false
 )
@@ -124,11 +124,11 @@ const qt6 = @import("libqt6zig");
 
 	// Create methods to register and unregister the resource
 	defMethods := `pub fn init() bool {
-    return qt6.QResource.RegisterResource2(&` + varName + `[0]);
+    return qt6.QResource.registerResource2(&` + varName + `[0]);
 }
 
 pub fn deinit() bool {
-    return qt6.QResource.UnregisterResource2(&` + varName + `[0]);
+    return qt6.QResource.unregisterResource2(&` + varName + `[0]);
 }
 `
 
